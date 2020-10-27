@@ -1,12 +1,13 @@
-CREATE TABLE account_tb (
-    acc_id VARCHAR2(30) PRIMARY KEY
-    ,acc_nm VARCHAR2(30) NOT NULL
-    ,acc_pw VARCHAR2(30) NOT NULL
+CREATE TABLE user_tb (
+    user_id VARCHAR2(30) PRIMARY KEY
+    ,user_name VARCHAR2(30) NOT NULL
+    ,user_password VARCHAR2(30) NOT NULL
+    ,user_refreshToken VARCHAR2(100) 
 );
 
-CREATE TABLE moneybook_tb (
-    moneybook_no NUMBER PRIMARY KEY
-    ,acc_id VARCHAR2(30) NOT NULL
+CREATE TABLE fl_tb (
+    fl_no NUMBER PRIMARY KEY
+    ,user_id VARCHAR2(30) NOT NULL
     ,moneybook_memo VARCHAR2(1000) NOT NULL
     ,moneybook_type VARCHAR2(20) NOT NULL
     ,moneybook_amount NUMBER DEFAULT 0
