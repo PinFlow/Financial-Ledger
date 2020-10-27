@@ -5,4 +5,29 @@
 
 <mapper namespace="com.FinancialLedger.team4.dao.UserAccountMapper">
 
+	<insert id="user_insert_default" parameterType="Map">
+		insert into
+			user_tb(
+				user_email
+				,user_password
+			)
+			values(
+				#{user_email}
+				,#{user_password}
+			)
+	</insert>
+	
+	<insert id="user_insert_google" parameterType="Map">
+		insert into
+			user_tb(
+				user_email
+				,user_refresh_token
+			)
+			values(
+				#{user_email}
+				,#{user_refresh_token}
+			)
+	</insert>
+	
+	
 </mapper>

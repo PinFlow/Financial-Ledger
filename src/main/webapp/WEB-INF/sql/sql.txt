@@ -1,9 +1,14 @@
 CREATE TABLE user_tb (
-    user_id VARCHAR2(30) PRIMARY KEY
-    ,user_name VARCHAR2(30) NOT NULL
+    user_email VARCHAR2(30) PRIMARY KEY
     ,user_password VARCHAR2(30) NOT NULL
-    ,user_refreshToken VARCHAR2(100) 
 );
+
+CREATE TABLE google_user_tb_ (
+    user_email VARCHAR2(30) PRIMARY KEY
+    ,user_refresh_token VARCHAR2(200) NULL 
+);
+
+
 
 CREATE TABLE fl_tb (
     fl_no NUMBER PRIMARY KEY

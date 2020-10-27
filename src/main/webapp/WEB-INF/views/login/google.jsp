@@ -8,11 +8,11 @@
 </head>
 <body>
 	<h1>Google Login 완료</h1>
-<div th:text="'TOKEN : ' + ${token}">${token}</div>
-<div th:text="'Email : ' + ${email}">${email}</div>
-<div><img th:src="${picture}"></img></div>
-${picture}
-
+<div th:text="'TOKEN : ' + ${token}">Token : ${token}</div>
+<div th:text="'Email : ' + ${email}">Email : ${email}</div>
+<div><img src="${picture}"></img></div>
+Picture url : ${picture}<br>
+name : ${name}
 
 
 </body>

@@ -22,9 +22,9 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home!");
+		logger.info("Home(login page) 이동");
 		
-		return "login";
+		return "login/login";
 	}
 	
 }
