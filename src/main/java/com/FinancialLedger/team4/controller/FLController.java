@@ -12,6 +12,7 @@ public class FLController {
 	
 	@RequestMapping(value = "main")
 	public String Main() {
+		logger.info("FL main 접근");
 		return "FL/main";
 	}
 }

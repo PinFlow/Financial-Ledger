@@ -30,7 +30,7 @@
 		}
 	
 		function sign_up(){
-			return location.href="/auth/sign_up";
+			return location.href="/login/sign_up_form";
 		}
 	</script>
 </head>
@@ -95,6 +95,7 @@ input.google_button {
 						</p>
 					</div>
 					
+					<!-- 버튼 부분 -->
 					<div class="field">
 						<!-- 사용자가 입력한 입력정보를 제출하는 버튼 -->
 						<button onclick="return sign_in();" class="button is-success" id="log-in-button">

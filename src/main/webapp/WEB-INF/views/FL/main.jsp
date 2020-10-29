@@ -3,14 +3,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Financial Ledger</title>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Financial Ledger</title>
+	<script type="text/javascript">
+		function save(){
+			var amount = document.getElementById('amount');
+			var description = document.getElementById('description');
+			
+			// 여기에 유효성 검사 로직 필요
+			
+			return location.href("/FL/save?amount="+amount+"&description="+description);
+		}
+		
+		function delete_row(){
+			// pk를 보내서 특정 행만 삭제할 수 있는 로직 작성
+			
+			return location.href("/FL/delete_row?pk"+{table.pk});
+		}
+		
+		function edit_row(){
+			// pk를 보내서 특정 행만 수정할 수 있는 로직 작성
+			// idea : 이 부분을 동적으로 만들 수 있는 방법은 없을까?? jquery?
+			return location.href("/FL/edit_row?pk="+{table.pk})
+		} 
+	</script>
 </head>
 <style>
 html, body {
@@ -51,13 +73,13 @@ html, body {
       <!--input form-->
       <div class="field has-addons">
         <p class="control">
-          <input class="input" type="number" name="amount" placeholder="Amount">
+          <input class="input" type="number" name="amount" placeholder="Amount" id="amount">
         </p>
         <p class="control is-expanded">
-          <input class="input" type="text" name="description" placeholder="Description">
+          <input class="input" type="text" name="description" placeholder="Description" id="description">
         </p>
         <p class="control">
-          <button class="button is-primary">Save</button>
+          <button onclick="return save();" class="button is-primary">Save</button>
         </p>
       </div>
       <!--dashboard-->
@@ -106,8 +128,8 @@ html, body {
             <td></td>
             <td></td>
             <td>
-              <button class="button is-danger">Delete</button>
-              <button class="button is-light">Edit</button>
+              <button onclick="return delete_row();" class="button is-danger">Delete</button>
+              <button onclick="return edit_row();" class="button is-light">Edit</button>
             </td>
           </tr>
         </tbody>
