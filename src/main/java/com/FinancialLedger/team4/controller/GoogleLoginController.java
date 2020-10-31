@@ -23,7 +23,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.FinancialLedger.team4.model.GoogleOAuthRequest;
 import com.FinancialLedger.team4.model.GoogleOAuthResponse;
 import com.FinancialLedger.team4.service.LoginService;
-import com.FinancialLedger.team4.vo.UserAccountVO;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -105,7 +104,7 @@ public class GoogleLoginController {
 		session.setAttribute(userInfo.get("email"), userInfo.get("email"));;
 
 		return "redirect:/FL/main";
-//		return "login/google";
+//		return "login/google"; // 받아오는 데이터 확인용 페이지
 	}
 
 	/**

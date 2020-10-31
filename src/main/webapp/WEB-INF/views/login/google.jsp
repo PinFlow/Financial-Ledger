@@ -8,12 +8,12 @@
 </head>
 <body>
 	<h1>Google Login 완료</h1>
-<div th:text="'TOKEN : ' + ${token}">Token : ${token}</div>
-<div th:text="'Email : ' + ${email}">Email : ${email}</div>
+	<h3>받아오는 데이터</h3>
+토큰 : ${token}
+이메일 : ${email}
 <div><img src="${picture}"></img></div>
-Picture url : ${picture}<br>
-name : ${name}
-
+사진 url : ${picture}<br>
+이름 : ${name}
 
 </body>
 </html>

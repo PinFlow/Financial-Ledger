@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.FinancialLedger.team4.dao.FLMapper">
+
+	<select id="SearchById" resultType="FL" parameterType="string">
+		select
+			fl_no
+			,user_email
+			,google_user_email
+			,fl_description
+			,fl_type
+			,fl_amount
+			,fl_indate
+		from
+			fl_tb
+		where
+			user_email = #{user_email}
+			or google_user_email = #{user_email}
+	</select>
+</mapper>

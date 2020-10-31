@@ -24,13 +24,13 @@
 		function delete_row(){
 			// pk를 보내서 특정 행만 삭제할 수 있는 로직 작성
 			
-			return location.href("/FL/delete_row?pk"+{table.pk});
+			return location.href("/FL/delete_row?pk"+{FL.fl_no});
 		}
 		
 		function edit_row(){
 			// pk를 보내서 특정 행만 수정할 수 있는 로직 작성
 			// idea : 이 부분을 동적으로 만들 수 있는 방법은 없을까?? jquery?
-			return location.href("/FL/edit_row?pk="+{table.pk})
+			return location.href("/FL/edit_row?pk="+{FL.fl_no})
 		} 
 	</script>
 </head>
@@ -71,6 +71,11 @@ html, body {
       <!--title-->
       <p class="title is-2 is-spaced">Your Records</p>
       <!--input form-->
+      <!-- 로그인 여부를 확인가능 -->
+      <div class="user info">
+      	{user}님의 가계부입니다.
+      </div>
+      
       <div class="field has-addons">
         <p class="control">
           <input class="input" type="number" name="amount" placeholder="Amount" id="amount">
@@ -129,6 +134,7 @@ html, body {
             <td></td>
             <td>
               <button onclick="return delete_row();" class="button is-danger">Delete</button>
+              <input onclick="window.open('주소', '팝업창 이름', 'width=#, height=#')"type="button" value="새창" >
               <button onclick="return edit_row();" class="button is-light">Edit</button>
             </td>
           </tr>

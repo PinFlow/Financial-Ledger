@@ -4,19 +4,22 @@ CREATE TABLE user_tb (
 );
 
 CREATE TABLE google_user_tb_ (
-    user_email VARCHAR2(30) PRIMARY KEY
-    ,user_refresh_token VARCHAR2(200) NULL 
+    google_user_email VARCHAR2(30) PRIMARY KEY
+    ,google_user_refresh_token VARCHAR2(200) NOT NULL
 );
 
-
-
-CREATE TABLE fl_tb (
+CREATE TABLE fl_tb(
     fl_no NUMBER PRIMARY KEY
-    ,user_id VARCHAR2(30) NOT NULL
-    ,moneybook_memo VARCHAR2(1000) NOT NULL
-    ,moneybook_type VARCHAR2(20) NOT NULL
-    ,moneybook_amount NUMBER DEFAULT 0
-    , moneybook_indate DATE DEFAULT SYSDATE
-    ,CONSTRAINT acc_id FOREIGN KEY(acc_id) 
-    	REFERENCES account_tb(acc_id) on delete cascade
+    ,user_email VARCHAR2(30)
+    ,google_user_email VARCHAR2(30)
+    ,fl_description VARCHAR2(1000) DEFAULT NULL
+    ,fl_type VARCHAR2(10) NOT NULL
+    ,fl_amount NUMBER DEFAULT 0
+    ,fl_indate DATE DEFAULT SYSDATE
+    ,CONSTRAINT user_email FOREIGN KEY(user_email) 
+    	REFERENCES user_tb(user_email) on delete cascade
+ 	,CONSTRAINT google_user_email FOREIGN KEY(google_user_email) 
+    	REFERENCES google_user_tb(google_user_email) on delete cascade
  );
+ 
+ CREATE SEQUENCE fl_seq;
